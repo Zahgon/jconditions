@@ -9,37 +9,22 @@ import java.util.List;
 /**
  * @author Vladislav Bauer
  */
-
 public final class ScriptUtils {
 
     private ScriptUtils() {
         throw new UnsupportedOperationException();
     }
 
-
     public static ScriptEngine findScriptEngine(final String engine) {
-        final ScriptEngineManager engineManager = new ScriptEngineManager();
-        final List<ScriptEngineFactory> engineFactories = engineManager.getEngineFactories();
-
-        for (final ScriptEngineFactory engineFactory : engineFactories) {
-            if (isSameEngine(engineFactory, engine)) {
-                return engineFactory.getScriptEngine();
-            }
-        }
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public static void addAttribute(
-        final ScriptContext context, final String key, final Object value
-    ) {
-        context.setAttribute(key, value, ScriptContext.ENGINE_SCOPE);
+    public static void addAttribute(final ScriptContext context, final String key, final Object value) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static boolean isSameEngine(final ScriptEngineFactory factory, final String engine) {
-        return sameName(factory, engine)
-                || sameLanguage(factory, engine)
-                || sameNames(factory, engine)
-                || sameMimeTypes(factory, engine);
+        return sameName(factory, engine) || sameLanguage(factory, engine) || sameNames(factory, engine) || sameMimeTypes(factory, engine);
     }
 
     private static boolean sameMimeTypes(final ScriptEngineFactory factory, final String engine) {
@@ -75,5 +60,4 @@ public final class ScriptUtils {
         final String engineName = factory.getEngineName();
         return TextUtils.containsIgnoreCase(engineName, engine);
     }
-
 }

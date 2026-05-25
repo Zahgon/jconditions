@@ -8,7 +8,6 @@ import com.github.vbauer.jconditions.core.ConditionCheckerExecutor;
 /**
  * @author Vladislav Bauer
  */
-
 public class IgnoreIfChecker implements ConditionChecker<IgnoreIf> {
 
     /**
@@ -16,13 +15,6 @@ public class IgnoreIfChecker implements ConditionChecker<IgnoreIf> {
      */
     @Override
     public boolean isSatisfied(final CheckerContext<IgnoreIf> context) {
-        final IgnoreIf annotation = context.getAnnotation();
-
-        @SuppressWarnings("rawtypes")
-        final Class<? extends ConditionChecker>[] checkerClasses = annotation.value();
-
-        //noinspection unchecked
-        return !ConditionCheckerExecutor.isSatisfied(context, checkerClasses);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

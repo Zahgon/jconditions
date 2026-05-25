@@ -13,68 +13,34 @@ import java.util.List;
 /**
  * @author Vladislav Bauer
  */
-
 public final class ReflexUtils {
 
     private static final String PACKAGE_JAVA_LANG_ANNOTATION = "java.lang.annotation";
-
 
     private ReflexUtils() {
         throw new UnsupportedOperationException();
     }
 
-
     public static boolean isInJavaLangAnnotationPackage(final Annotation annotation) {
-        final Class<? extends Annotation> annotationType = annotation.annotationType();
-        final String annotationTypeName = annotationType.getName();
-        return annotationTypeName.startsWith(PACKAGE_JAVA_LANG_ANNOTATION);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @SuppressWarnings("unchecked")
     public static <T> T getFieldValue(final Object object, final String fieldName) {
-        try {
-            final Class<?> objectClass = object.getClass();
-            final Field field = objectClass.getDeclaredField(fieldName);
-            field.setAccessible(true);
-            return (T) field.get(object);
-        } catch (final Exception ex) {
-            return null;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static <T extends AccessibleObject> T makeAccessible(final T object) {
-        if (!object.isAccessible()) {
-            object.setAccessible(true);
-        }
-        return object;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static Collection<Annotation> findAllAnnotations(final Class<?> clazz) {
-        final List<Annotation> result = new ArrayList<>();
-        Class<?> current = clazz;
-
-        while (current != Object.class && current != null) {
-            final Class<?>[] interfaces = current.getInterfaces();
-            for (final Class<?> i : interfaces) {
-                result.addAll(findAllAnnotations(i));
-            }
-
-            result.addAll(Arrays.asList(current.getAnnotations()));
-            current = current.getSuperclass();
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static <T> T instantiate(final Object instance, final Class<T> checkerClass) {
-        try {
-            return instantiateImpl(instance, checkerClass);
-        } catch (final RuntimeException ex) {
-            throw ex;
-        } catch (final Exception ex) {
-            throw new RuntimeException(ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     private static <T> T instantiateImpl(final Object instance, final Class<T> clazz) throws Exception {
         if (clazz.isMemberClass() && !Modifier.isStatic(clazz.getModifiers())) {
@@ -88,12 +54,9 @@ public final class ReflexUtils {
         return ReflexUtils.makeAccessible(constructor).newInstance();
     }
 
-    private static <T> T instantiateInnerClass(
-        final Object instance, final Class<T> clazz
-    ) throws Exception {
+    private static <T> T instantiateInnerClass(final Object instance, final Class<T> clazz) throws Exception {
         final Class<?> outerClass = clazz.getDeclaringClass();
         final Constructor<T> constructor = clazz.getDeclaredConstructor(outerClass);
         return ReflexUtils.makeAccessible(constructor).newInstance(instance);
     }
-
 }

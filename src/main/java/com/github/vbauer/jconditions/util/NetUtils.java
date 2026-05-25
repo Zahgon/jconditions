@@ -12,51 +12,23 @@ import java.net.URLConnection;
 /**
  * @author Vladislav Bauer
  */
-
 public final class NetUtils {
 
     private static final String HTTP_PREFIX = "http://";
-
 
     private NetUtils() {
         throw new UnsupportedOperationException();
     }
 
-
     public static String fixScheme(final String address) {
-        if (address != null) {
-            final URI uri = URI.create(address);
-            final String scheme = uri.getScheme();
-
-            if (scheme == null) {
-                return HTTP_PREFIX + address;
-            }
-        }
-        return address;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static File copyURLContentToFile(final URLConnection connection, final String target) throws Exception {
-        InputStream input = null;
-        OutputStream output = null;
-
-        try {
-            final File file = new File(target);
-            output = new FileOutputStream(file);
-            input = connection.getInputStream();
-            InOutUtils.copy(input, output);
-            return file;
-        } finally {
-            InOutUtils.closeQuietly(input);
-            InOutUtils.closeQuietly(output);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static URLConnection connectURL(final String uri, final int timeout) throws IOException {
-        final URL url = new URL(uri);
-        final URLConnection connection = url.openConnection();
-        connection.setConnectTimeout(timeout);
-        connection.connect();
-        return connection;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

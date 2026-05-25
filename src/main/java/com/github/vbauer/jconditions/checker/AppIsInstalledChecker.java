@@ -8,7 +8,6 @@ import com.github.vbauer.jconditions.util.PropUtils;
 /**
  * @author Vladislav Bauer
  */
-
 public class AppIsInstalledChecker implements ConditionChecker<AppIsInstalled> {
 
     /**
@@ -16,11 +15,8 @@ public class AppIsInstalledChecker implements ConditionChecker<AppIsInstalled> {
      */
     @Override
     public boolean isSatisfied(final CheckerContext<AppIsInstalled> context) {
-        final AppIsInstalled annotation = context.getAnnotation();
-        final String[] applications = annotation.value();
-        return appsInstalled(applications);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     private boolean appsInstalled(final String... applications) {
         for (final String application : applications) {
@@ -39,5 +35,4 @@ public class AppIsInstalledChecker implements ConditionChecker<AppIsInstalled> {
             return false;
         }
     }
-
 }

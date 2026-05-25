@@ -7,30 +7,24 @@ import org.junit.runners.model.Statement;
 /**
  * @author Vladislav Bauer
  */
-
 public class IgnoreStatement extends Statement {
 
     private final ConditionChecker<?> condition;
 
-
     public IgnoreStatement(final ConditionChecker<?> condition) {
         this.condition = condition;
     }
-
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void evaluate() {
-        final String conditionClassName = getConditionName();
-        throw new AssumptionViolatedException("Ignored by " + conditionClassName);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     private String getConditionName() {
         final Class<?> conditionClass = condition.getClass();
         return conditionClass.getSimpleName();
     }
-
 }

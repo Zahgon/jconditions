@@ -7,7 +7,6 @@ import com.github.vbauer.jconditions.core.ConditionChecker;
 /**
  * @author Vladislav Bauer
  */
-
 public class HasPackageChecker implements ConditionChecker<HasPackage> {
 
     /**
@@ -15,11 +14,8 @@ public class HasPackageChecker implements ConditionChecker<HasPackage> {
      */
     @Override
     public boolean isSatisfied(final CheckerContext<HasPackage> context) {
-        final HasPackage annotation = context.getAnnotation();
-        final String[] packageNames = annotation.value();
-        return hasAllPackages(packageNames);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     private boolean hasAllPackages(final String... packageNames) {
         for (final String packageName : packageNames) {
@@ -30,5 +26,4 @@ public class HasPackageChecker implements ConditionChecker<HasPackage> {
         }
         return packageNames.length > 0;
     }
-
 }

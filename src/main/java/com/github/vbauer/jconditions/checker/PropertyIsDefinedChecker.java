@@ -9,7 +9,6 @@ import com.github.vbauer.jconditions.util.TextUtils;
 /**
  * @author Vladislav Bauer
  */
-
 public class PropertyIsDefinedChecker implements ConditionChecker<PropertyIsDefined> {
 
     /**
@@ -17,21 +16,13 @@ public class PropertyIsDefinedChecker implements ConditionChecker<PropertyIsDefi
      */
     @Override
     public boolean isSatisfied(final CheckerContext<PropertyIsDefined> context) {
-        final PropertyIsDefined annotation = context.getAnnotation();
-        final String[] keys = annotation.keys();
-        final String[] values = annotation.values();
-
-        return isSatisfied(keys, values);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     private boolean isSatisfied(final String[] keys, final String[] values) {
         int index = 0;
         for (final String key : keys) {
-            final String variable = PropUtils.getSystemProperty(
-                PropUtils.injectProperties(key)
-            );
-
+            final String variable = PropUtils.getSystemProperty(PropUtils.injectProperties(key));
             try {
                 final String value = PropUtils.injectProperties(values[index++]);
                 if (!TextUtils.equalsSafe(variable, value)) {
@@ -45,5 +36,4 @@ public class PropertyIsDefinedChecker implements ConditionChecker<PropertyIsDefi
         }
         return keys.length > 0;
     }
-
 }

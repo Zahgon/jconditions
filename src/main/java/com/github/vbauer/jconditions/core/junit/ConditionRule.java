@@ -10,23 +10,13 @@ import org.junit.runners.model.Statement;
  * @see MethodRule
  * @author Vladislav Bauer
  */
-
 public class ConditionRule implements MethodRule {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Statement apply(
-        final Statement base, final FrameworkMethod method, final Object target
-    ) {
-        final ConditionChecker<?> checker =
-            ConditionCheckerEngine.detectFailedChecker(target, method);
-
-        if (checker != null) {
-            return new IgnoreStatement(checker);
-        }
-        return base;
+    public Statement apply(final Statement base, final FrameworkMethod method, final Object target) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

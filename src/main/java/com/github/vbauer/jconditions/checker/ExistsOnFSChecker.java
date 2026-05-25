@@ -9,7 +9,6 @@ import com.github.vbauer.jconditions.util.PropUtils;
 /**
  * @author Vladislav Bauer
  */
-
 public class ExistsOnFSChecker implements ConditionChecker<ExistsOnFS> {
 
     /**
@@ -17,17 +16,10 @@ public class ExistsOnFSChecker implements ConditionChecker<ExistsOnFS> {
      */
     @Override
     public boolean isSatisfied(final CheckerContext<ExistsOnFS> context) throws Exception {
-        final ExistsOnFS annotation = context.getAnnotation();
-        final ExistsOnFS.Type[] types = annotation.type();
-        final String[] filePaths = annotation.value();
-
-        return isSatisfied(filePaths, types);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-
-    private boolean isSatisfied(
-        final String[] filePaths, final ExistsOnFS.Type... types
-    ) throws Exception {
+    private boolean isSatisfied(final String[] filePaths, final ExistsOnFS.Type... types) throws Exception {
         for (final String filePath : filePaths) {
             if (isSatisfied(filePath, types)) {
                 return false;
@@ -36,9 +28,7 @@ public class ExistsOnFSChecker implements ConditionChecker<ExistsOnFS> {
         return filePaths.length > 0;
     }
 
-    private boolean isSatisfied(
-        final String filePath, final ExistsOnFS.Type... types
-    ) throws Exception {
+    private boolean isSatisfied(final String filePath, final ExistsOnFS.Type... types) throws Exception {
         for (final ExistsOnFS.Type type : types) {
             if (!existsOnFS(filePath, type)) {
                 return true;
@@ -47,11 +37,9 @@ public class ExistsOnFSChecker implements ConditionChecker<ExistsOnFS> {
         return false;
     }
 
-    private boolean existsOnFS(
-        final String filePath, final ExistsOnFS.Type type
-    ) throws Exception {
+    private boolean existsOnFS(final String filePath, final ExistsOnFS.Type type) throws Exception {
         final String path = PropUtils.injectProperties(filePath);
-        switch (type) {
+        switch(type) {
             case FILE:
                 return FSUtils.fileExists(path);
             case DIRECTORY:
@@ -62,5 +50,4 @@ public class ExistsOnFSChecker implements ConditionChecker<ExistsOnFS> {
                 throw new UnsupportedOperationException("Unsupported type of FS element");
         }
     }
-
 }

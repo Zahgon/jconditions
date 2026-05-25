@@ -3,13 +3,11 @@ package com.github.vbauer.jconditions.checker;
 import com.github.vbauer.jconditions.annotation.HasFreeSpace;
 import com.github.vbauer.jconditions.core.CheckerContext;
 import com.github.vbauer.jconditions.core.ConditionChecker;
-
 import java.io.File;
 
 /**
  * @author Vladislav Bauer
  */
-
 public class HasFreeSpaceChecker implements ConditionChecker<HasFreeSpace> {
 
     /**
@@ -17,14 +15,8 @@ public class HasFreeSpaceChecker implements ConditionChecker<HasFreeSpace> {
      */
     @Override
     public boolean isSatisfied(final CheckerContext<HasFreeSpace> context) {
-        final HasFreeSpace annotation = context.getAnnotation();
-        final String[] targets = annotation.value();
-        final long min = annotation.min();
-        final long max = annotation.max();
-
-        return isSatisfied(targets, min, max);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     private boolean isSatisfied(final String[] targets, final long min, final long max) {
         for (final String target : targets) {
@@ -46,5 +38,4 @@ public class HasFreeSpaceChecker implements ConditionChecker<HasFreeSpace> {
         }
         return true;
     }
-
 }

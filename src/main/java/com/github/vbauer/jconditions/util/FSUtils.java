@@ -6,47 +6,29 @@ import java.io.IOException;
 /**
  * @author Vladislav Bauer
  */
-
 public final class FSUtils {
 
     private FSUtils() {
         throw new UnsupportedOperationException();
     }
 
-
     public static boolean exists(final String path) {
-        final File file = new File(path);
-        return file.exists();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static boolean fileExists(final String path) {
-        final File file = new File(path);
-        return file.exists() && file.isFile();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static boolean directoryExists(final String path) {
-        final File file = new File(path);
-        return file.exists() && file.isDirectory();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static boolean isSymlink(final String path) throws IOException {
-        final File file = new File(path);
-        final File fileInCanonicalDir;
-
-        if (file.getParent() == null) {
-            fileInCanonicalDir = file;
-        } else {
-            fileInCanonicalDir = new File(file.getParentFile().getCanonicalFile(), file.getName());
-        }
-
-        final File canonicalFile = fileInCanonicalDir.getCanonicalFile();
-        final File absoluteFile = fileInCanonicalDir.getAbsoluteFile();
-        return !canonicalFile.equals(absoluteFile);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static boolean deleteFile(final String path) {
-        final File file = new File(path);
-        return file.delete();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

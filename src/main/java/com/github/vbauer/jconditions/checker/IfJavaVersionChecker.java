@@ -8,25 +8,19 @@ import com.github.vbauer.jconditions.util.PropUtils;
 /**
  * @author Vladislav Bauer
  */
-
 public class IfJavaVersionChecker implements ConditionChecker<IfJavaVersion> {
 
     private static final String PROPERTY_JAVA_VERSION = "java.version";
-
 
     /**
      * {@inheritDoc}
      */
     @Override
     public boolean isSatisfied(final CheckerContext<IfJavaVersion> context) {
-        final IfJavaVersion annotation = context.getAnnotation();
-        final String[] versions = annotation.value();
-        return PropUtils.hasAnyWithProperties(javaVersion(), versions);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     public static String javaVersion() {
-        return PropUtils.getSystemProperty(PROPERTY_JAVA_VERSION).toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

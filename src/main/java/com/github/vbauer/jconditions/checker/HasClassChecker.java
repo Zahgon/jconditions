@@ -7,7 +7,6 @@ import com.github.vbauer.jconditions.core.ConditionChecker;
 /**
  * @author Vladislav Bauer
  */
-
 public class HasClassChecker implements ConditionChecker<HasClass> {
 
     /**
@@ -15,11 +14,8 @@ public class HasClassChecker implements ConditionChecker<HasClass> {
      */
     @Override
     public boolean isSatisfied(final CheckerContext<HasClass> context) {
-        final HasClass annotation = context.getAnnotation();
-        final String[] classNames = annotation.value();
-        return hasAllClasses(classNames);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     private boolean hasAllClasses(final String... classNames) {
         for (final String className : classNames) {
@@ -38,5 +34,4 @@ public class HasClassChecker implements ConditionChecker<HasClass> {
             return false;
         }
     }
-
 }

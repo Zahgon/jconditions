@@ -9,7 +9,6 @@ import com.github.vbauer.jconditions.util.PropUtils;
 /**
  * @author Vladislav Bauer
  */
-
 public class UrlIsReachableChecker implements ConditionChecker<UrlIsReachable> {
 
     /**
@@ -17,12 +16,8 @@ public class UrlIsReachableChecker implements ConditionChecker<UrlIsReachable> {
      */
     @Override
     public boolean isSatisfied(final CheckerContext<UrlIsReachable> context) {
-        final UrlIsReachable annotation = context.getAnnotation();
-        final String[] urlAddresses = annotation.value();
-        final int timeout = annotation.timeout();
-        return isReachable(urlAddresses, timeout);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     private boolean isReachable(final String[] urlAddresses, final int timeout) {
         for (final String urlAddress : urlAddresses) {
@@ -41,5 +36,4 @@ public class UrlIsReachableChecker implements ConditionChecker<UrlIsReachable> {
             return false;
         }
     }
-
 }
